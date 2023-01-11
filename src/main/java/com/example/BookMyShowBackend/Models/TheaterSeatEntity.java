@@ -6,13 +6,13 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@Table(name="theaters_seats")
 @Entity
-@Table(name="theater_seats")
 public class TheaterSeatEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,14 +22,15 @@ public class TheaterSeatEntity {
     private String seatNumber;
 
     @Column(name="rate",nullable = false)
-    private int rate;
+    private double rate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="seat_type",nullable = false)
+    @Column(name = "seat_type",nullable = false)
     private SeatType seatType;
 
+
     @ManyToOne
-    @JoinColumn
     @JsonIgnore
+    @JoinColumn
     private TheaterEntity theater;
 }

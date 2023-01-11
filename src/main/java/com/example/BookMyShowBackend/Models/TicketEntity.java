@@ -2,47 +2,47 @@ package com.example.BookMyShowBackend.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder
+@Table(name="tickets")
 @Entity
-@Table(name = "tickets")
 public class TicketEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
-    @Column(name="allotted_seat",nullable = false)
-    private String allottedSeats;
+    @Column(name = "alloted_Seat",nullable = false)
+    private String allotedSeats;
 
-    @Column(name="amount",nullable = false)
+    @Column(name="rate",nullable = false)
     private double amount;
 
-    @Column(name="booked_at",nullable = false)
-    private Date bookedAt;
-
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="date",nullable = false)
+    private Date bookAt;
 
     @ManyToOne
-    @JoinColumn
     @JsonIgnore
+    @JoinColumn
     private UserEntity user;
 
     @ManyToOne
-    @JoinColumn
     @JsonIgnore
+    @JoinColumn
     private ShowEntity show;
 
-    @OneToMany(mappedBy = "ticket",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="tickets",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ShowSeatEntity> seats;
-
-
 
 }

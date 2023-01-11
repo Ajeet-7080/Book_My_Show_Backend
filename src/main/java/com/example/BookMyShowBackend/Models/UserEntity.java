@@ -1,19 +1,17 @@
 package com.example.BookMyShowBackend.Models;
 
-
 import lombok.*;
-
 
 import javax.persistence.*;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Entity
 @Table(name="users")
+@Entity
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +21,8 @@ public class UserEntity {
     private String name;
 
     @Column(name="mobile",nullable = false)
-    private String mobile;
+    private String mobileNumber;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL) // bidirectional mapping
-    private List<TicketEntity> listOfTicket;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<TicketEntity> ticketEntities;
 }
