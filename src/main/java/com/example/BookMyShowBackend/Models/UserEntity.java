@@ -21,7 +21,7 @@ public class UserEntity {
     private String name;
 
     @Column(name="mobile",nullable = false)
-    private String mobileNumber;
+    private String mobile;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL) // this annotation is used for bidirectional mapping this is for parent class.
     private List<TicketEntity> ticketEntities;
