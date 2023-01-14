@@ -1,11 +1,9 @@
 package com.example.BookMyShowBackend.Models;
 
-import com.example.BookMyShowBackend.Enum.SeatType;
+
 import com.example.BookMyShowBackend.Enum.TheaterType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.hibernate.annotations.CollectionId;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@Table(name="theaters")
+@Table(name="theaters") //
 @Entity
 public class TheaterEntity {
     @Id

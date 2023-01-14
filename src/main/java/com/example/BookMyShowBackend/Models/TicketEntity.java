@@ -31,10 +31,10 @@ public class TicketEntity {
     @Column(name="date",nullable = false)
     private Date bookAt;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn
-    private UserEntity user;
+    @ManyToOne // this is used for connecting two table
+    @JsonIgnore // used to ignore the value
+    @JoinColumn // join the column
+    private UserEntity user; // we can say its denote foreignKey its ignore at the input time becouse we have mention above JsonIgnore.
 
     @ManyToOne
     @JsonIgnore
