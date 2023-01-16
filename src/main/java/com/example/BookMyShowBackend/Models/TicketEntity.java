@@ -3,12 +3,14 @@ package com.example.BookMyShowBackend.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
+@EntityListeners(value = { AuditingEntityListener.class })
 @AllArgsConstructor
 @Getter
 @Setter
