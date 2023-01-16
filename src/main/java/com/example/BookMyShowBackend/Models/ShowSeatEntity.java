@@ -27,7 +27,7 @@ public class ShowSeatEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "seat_type",nullable = false)
-    private SeatType seattype;
+    private SeatType seatType;
 
     @Column(name = "is_booked",columnDefinition = "bit(1) default 0",nullable = false)
     private boolean booked;
